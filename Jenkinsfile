@@ -15,9 +15,9 @@ pipeline {
         }
         stage('docker-build') {
             steps {
-                sh 'docker build  -t apache:1 . '
-                sh 'docker images'
-                sh 'docker images -a'
+                sh 'sudo docker build  -t apache:1 . '
+                sh 'sudo docker images'
+                sh 'sudo docker images -a'
             }
         }
     }
