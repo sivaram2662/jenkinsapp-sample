@@ -10,7 +10,7 @@ pipeline {
         }
          stage('docker-build') {
             steps {
-                sh 'docker build images -t apache:1 .'
+                sh 'docker --version'
             }
         }
     }
