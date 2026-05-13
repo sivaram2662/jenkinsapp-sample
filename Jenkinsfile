@@ -13,13 +13,13 @@ pipeline {
                 sh 'docker --version'
             }
         }
-        // stage('docker-build') {
-        //     steps {
-        //         sh 'sudo docker build  -t apache:1 . '
-        //         sh 'sudo docker images'
-        //         sh 'sudo docker images -a'
-        //     }
-        // }
+        stage('docker-build') {
+            steps {
+                sh 'sudo docker build  -t apache:2 . '
+                sh 'sudo docker images'
+                sh 'sudo docker images -a'
+            }
+        }
         // stage('docker-container') {
         //     steps {
         //         sh 'sudo docker run  -d -p 8004:80 apache:1'
