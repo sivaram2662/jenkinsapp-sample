@@ -22,7 +22,7 @@ pipeline {
         }
         stage('docker-container') {
             steps {
-                sh 'sudo docker run  -d -p 8006:80 apache:2'
+                sh 'sudo docker run  -d -p 8007:80 apache:2'
                 sh 'sudo docker ps '
                 sh 'sudo docker ps -a'
             }
