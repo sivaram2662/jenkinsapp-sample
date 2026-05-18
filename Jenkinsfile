@@ -22,20 +22,20 @@ pipeline {
         }
         stage('docker-container') {
             steps {
-                sh 'sudo docker run  -d -p 8005:80 apache:2'
+                sh 'sudo docker run  -d -p 8006:80 apache:2'
                 sh 'sudo docker ps '
                 sh 'sudo docker ps -a'
             }
         }
-        //  stage('ECR-Login') {
-        //     steps {
-        //         sh 'sudo aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 607856468790.dkr.ecr.ap-south-1.amazonaws.com'
-        //         sh 'sudo docker build -t jenkins-image:latest 607856468790.dkr.ecr.ap-south-1.amazonaws.com/jenkins-image:1.'
-        //         sh 'sudo docker push 607856468790.dkr.ecr.ap-south-1.amazonaws.com/jenkins-image:1'
-        //     }  
-        // }
+         stage('ecr-image') {
+            steps {
+                sh 'sudo aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 607856468790.dkr.ecr.ap-south-1.amazonaws.com'
+            }
+        }
     }
 }
+
+
 
 
 
