@@ -22,7 +22,7 @@ pipeline {
         }
         stage('docker-container') {
             steps {
-                sh 'sudo docker run  -d -p 8010:80 apache:2'
+                sh 'sudo docker run  -d -p 8011:80 apache:2'
                 sh 'sudo docker ps '
                 sh 'sudo docker ps -a'
             }
@@ -30,7 +30,7 @@ pipeline {
          stage('ecr-image') {
             steps {
                 sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 607856468790.dkr.ecr.ap-south-1.amazonaws.com'
-                sh 'docker build -t 607856468790.dkr.ecr.ap-south-1.amazonaws.com/updated-jenkins-images:latest .'
+                sh 'sudo docker build -t 607856468790.dkr.ecr.ap-south-1.amazonaws.com/updated-jenkins-images:latest .'
             }
         }
     }
